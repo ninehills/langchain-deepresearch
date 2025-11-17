@@ -13,7 +13,7 @@ load_dotenv()
 tavily_client = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
 
 # Use Anthropic model
-def get_anthropic_model() -> ChatAnthropic:
+def get_default_model() -> ChatAnthropic:
     """Get the default model for deep agents.
 
     Returns:
@@ -176,6 +176,7 @@ Use this to run an internet search for a given query. You can specify the number
 
 # Create the agent
 agent = create_deep_agent(
+    model=get_default_model(),
     tools=[internet_search],
     system_prompt=research_instructions,
     subagents=[critique_sub_agent, research_sub_agent],
