@@ -36,8 +36,8 @@ git submodule update --init --recursive
 ```bash
 uv venv --python 3.12
 source .venv/bin/activate
-uv pip install -r research_agent_v1/requirements.txt
 cd research_agent_v1/
+uv pip install -r requirements.txt
 cp env.example .env  # 填入密钥
 uv run langgraph dev --config langgraph.json
 ```
@@ -50,8 +50,8 @@ uv run langgraph dev --config langgraph.json
 
 ```bash
 source .venv/bin/activate  # 复用虚拟环境
-uv pip install -r research_agent_v2/requirements.txt
 cd research_agent_v2/
+uv pip install -r requirements.txt
 cp env.example .env  # 填入密钥
 uv run langgraph dev --config langgraph.json
 ```
@@ -64,9 +64,10 @@ uv run langgraph dev --config langgraph.json
 
 ```bash
 source .venv/bin/activate
-uv pip install -r research_agent_v3/requirements.txt
-cp research_agent_v3/env.example research_agent_v3/.env
-uv run langgraph dev --config research_agent_v3/langgraph.json
+cd research_agent_v3/
+uv pip install -r requirements.txt
+cp env.example .env
+uv run langgraph dev --config langgraph.json
 ```
 
 ## 前端（deep-agents-ui）
